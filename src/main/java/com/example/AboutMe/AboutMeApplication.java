@@ -12,13 +12,14 @@ public class AboutMeApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AboutMeApplication.class, args);
 	}
+
 	@GetMapping("/alive")
 	public String alive() {
 		return "alive";
 	}
 	@GetMapping("/user")
 	public String user() {
-		return "alive";
+		return "user";
 	}
 
 }
