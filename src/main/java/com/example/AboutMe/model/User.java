@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import java.util.List;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "users")
@@ -17,7 +18,7 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
 
     @Column(nullable = false, name = "name")
     private String name;
@@ -32,8 +33,9 @@ public class User {
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, name = "gender")
-    private UserGender gender;  //enum
+    private UserGender gender;
 
     @Column(name = "phone")
     private String phone;
@@ -56,18 +58,6 @@ public class User {
     @Column(nullable = false, name = "hash_password")
     private String hashPassword;
 
-    @Column(name = "social_media_links", columnDefinition = "JSONB")
-    @Convert(converter = SocialMediaListConverter.class)
-    private List<SocialMediaEntry> socialMediaLinks;
-
     @Column(name = "website_url", length = 255)
-    private String WebsiteUrl;
-
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class SocialMediaEntry {
-        private String platform; // e.g., "instagram", "linkedin", "twitter"
-        private String url;      // The actual link (e.g., "https://instagram.com/johndoe")
-    }
+    private String websiteUrl;
 }
