@@ -4,6 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import com.example.AboutMe.controller.userController;
 
 
 @SpringBootApplication
@@ -19,6 +20,7 @@ public class AboutMeApplication {
 	}
 	@GetMapping("/user")
 	public String user() {
+		//userController()
 		return "user";
 	}
 
